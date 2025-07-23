@@ -57,3 +57,16 @@ if st.button("Generate Response"):
             st.write(output.get("generated_text", "No response received."))
     else:
         st.warning("Please enter a prompt.")
+
+
+def query(payload):
+    try:
+        response = requests.post(API_URL, headers=headers, json=payload)
+        response.raise_for_status()  # Raise error for bad status codes
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        st.error(f"Request failed: {e}")
+    except ValueError:
+        st.error("Failed to decode JSON. The API may have returned an empty or invalid response.")
+    return {}
+
