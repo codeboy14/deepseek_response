@@ -37,7 +37,7 @@ st.title("DeepSeek R1 Response App")
 user_prompt = st.text_area("Enter your prompt:", height=150)
 
 # API endpoint
-API_URL = "https://api-inference.huggingface.co/models/deepseek-ai/deepseek-llm-r1"
+API_URL = "https://api-inference.huggingface.co/models/gpt2"
 
 # Hugging Face API token (securely stored in Streamlit secrets)
 headers = {
